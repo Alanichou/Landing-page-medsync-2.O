@@ -159,11 +159,49 @@ Aucune fonctionnalité critique manquante pour la landing page statique.
    - Études de cas
    - Guides CCN 51
 
+## Ce qui a été ajouté (4 Avril 2026)
+
+### ✅ Phase 2 - Page de Contact & Formulaire (Frontend Mock)
+**Nouvelle fonctionnalité:**
+1. **Page de Contact** (`/contact`)
+   - Route React Router dédiée
+   - Layout 2 colonnes (informations + formulaire)
+   - Design cohérent avec la landing page
+   - Header avec logo et bouton retour
+
+2. **Formulaire de Contact**
+   - Champs: Prénom, Nom, Email, Téléphone (obligatoires)
+   - Champs optionnels: Entreprise, Nombre d'employés, Message
+   - Select pour nombre d'employés (dropdown)
+   - Validation frontend (email, champs requis)
+   - Toast de succès après soumission
+   - Redirection automatique vers accueil après 2s
+   - États de chargement (spinner)
+
+3. **Informations de Contact**
+   - Section bénéfices de la démo
+   - Coordonnées téléphone/email/adresse
+   - Design avec gradient (teal → navy)
+
+**Fichiers créés:**
+- `/app/frontend/src/pages/ContactPage.jsx` - Page de contact complète
+- `/app/frontend/src/styles/contact.css` - Styles de la page de contact
+
+**Fichiers modifiés:**
+- `/app/frontend/src/App.js` - Ajout du routing React Router
+
+**Comportement actuel:**
+- Tous les boutons "Demander une démo gratuite" redirigent vers `/contact`
+- Les données du formulaire sont loggées en console (mock)
+- Toast de confirmation apparaît après soumission
+- **IMPORTANT**: Aucun backend - données non sauvegardées (frontend only)
+
 ## Prochaines Actions
 1. ✅ **TERMINÉ** - Landing page frontend avec mock data
-2. **Prochaine étape** - Implémenter formulaire de demande de démo avec backend
-3. **Après** - Ajouter email marketing (intégration Mailchimp/SendGrid)
-4. **Après** - Analytics et tracking
+2. ✅ **TERMINÉ** - Page de contact avec formulaire frontend
+3. **Prochaine étape P1** - Créer API backend pour sauvegarder les demandes de contact
+4. **Prochaine étape P1** - Intégration email automatique (SendGrid/Mailchimp)
+5. **Après** - Analytics et tracking
 
 ## Notes Techniques
 - **Shadcn Components utilisés**: Accordion, Button, Toast (Sonner)

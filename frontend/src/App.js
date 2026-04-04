@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/landing/Header';
 import Hero from './components/landing/Hero';
 import Benefits from './components/landing/Benefits';
@@ -8,22 +9,20 @@ import Pricing from './components/landing/Pricing';
 import FAQ from './components/landing/FAQ';
 import CTA from './components/landing/CTA';
 import Footer from './components/landing/Footer';
+import ContactPage from './pages/ContactPage';
 import { Toaster } from './components/ui/sonner';
-import { toast } from 'sonner';
 import './styles/landing.css';
+import './styles/contact.css';
 
-function App() {
+// Landing Page Component
+const LandingPage = () => {
+  const navigate = useNavigate();
+
   const handleDemoRequest = () => {
-    // Mock demo request - will be replaced with actual form/backend integration
-    toast.success('Demande de démo envoyée !', {
-      description: 'Notre équipe vous contactera sous 24h pour planifier votre démonstration personnalisée.',
-      duration: 5000,
-    });
-    console.log('Demo request submitted');
+    navigate('/contact');
   };
 
   const handlePricingClick = () => {
-    // Smooth scroll to pricing section
     const pricingSection = document.querySelector('.pricing-section');
     if (pricingSection) {
       pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -64,9 +63,20 @@ function App() {
       </main>
       
       <Footer />
-      
-      <Toaster position="top-right" />
     </div>
+  );
+};
+
+// Main App Component with Routing
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <Toaster position="top-right" />
+    </BrowserRouter>
   );
 }
 
