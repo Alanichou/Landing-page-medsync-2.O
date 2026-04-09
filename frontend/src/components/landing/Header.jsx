@@ -7,8 +7,7 @@ const Header = ({ onCtaClick }) => {
     <header className="site-header">
       <div className="header-container">
         <div className="header-logo">
-          <Calendar className="logo-icon" />
-          <span className="logo-text">Medisync</span>
+          <img src="/logo.png" alt="Medsync" className="h-8 w-auto" />
         </div>
         
         <nav className="header-nav">
